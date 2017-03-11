@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<string.h>
+
 char a[9]={'1','2','3','4','5','6','7','8','9'};
 char u1[50],u2[50];
 void board();
@@ -9,13 +10,13 @@ int main()
 {
     int player=1;
     int choice,score=-1;
-    char symbol,re;
+    char symbol,re,x;
     char start;
+    int s;
     rules();
-    start:
-    printf("Press S(start) to continue\n");
-    scanf("%c",&start);
-    if(start=='S' || start=='s')
+    printf("\n\nType 1 to start the game:- ");
+    scanf("%d",&s);
+    if(s==1)
     {
     read:
     printf("\nEnter name of player1: ");
@@ -72,20 +73,21 @@ int main()
     {
         if(player==2)
         {printf("\n\nPlayer1 %s Wins!\n\n",u1);
-        return 0;}
+        getch();}
         else
             {printf("\n\nPlayer2 %s Wins!\n\n",u2);
-        return 0;
+        getch();
             }
     }
     else
         printf("\n\nGame Draws!\n\n");
-        return 0;
+        getch();
     }
     }
     else
     {
-        printf("\n\nShould have typed s or S to play the game!\nHope to see you back soon!\n\n");
+        printf("\n\nShould have typed 1 to play the game!\nHope to see you back soon!\n\n");
+        getch();
     }
 }
 int checkforwin()
@@ -120,7 +122,7 @@ void board()
     system("cls");
     printf("\tTic-Tac-Toe\n\n");
         printf("\n\n");
-        printf("Player1 %s:- (X)\nPlayer2  %s:-  (O)\n\n\n",u1,u2);
+        printf("%s:- (X)\n%s:-  (O)\n\n\n",u1,u2);
 
         printf("  %c |  %c | %c\n",a[0],a[1],a[2]);
         printf("    |    |    \n");
@@ -130,24 +132,24 @@ void board()
         printf("    |    |    \n");
         printf("----|----|----\n");
         printf("  %c |  %c | %c\n",a[6],a[7],a[8]);
-        printf("    |    |    \n\n\n");
-
+        printf("    |    |    \n");
     }
 void rules()
 {
-    char link;
+    char link;//char link;
     printf("\tTic-Tac-Toe\n\n");
     printf("Welcome to the most played 2D game and a sort of fun using X and O\n\n");
     printf("Rules:-\n");
     printf("\n1:Each player will be entering the number to put respective X or O in the desired position");
     printf("\n2:Player who gets a combination of 3 same characters either diagonal or horizontally or \n  vertically will be declared as the winner");
     printf("\n\nEnjoy the game! Be a Winner!\n\n");
-    printf("For more clarifications press Y\n\n");
+    printf("For more clarifications press Y else type any other character:- ");
     /*scanf("%c",&link);
     if(link=='y' || link=='Y')
     {
         system("start http://www.wikihow.com/Play-Tic-Tac-Toe");
     }*/
+
 }
 
 
