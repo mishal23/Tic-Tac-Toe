@@ -12,7 +12,7 @@
 <img src="https://github.com/mishal23/Tic-Tac-Toe/blob/master/images/in%20between.png" width="623" height="350" />
 
 ### Download
-- [EXE Application](https://drive.google.com/open?id=0B0NP6taS3z-yY3EydzNPcU1OQnc)
+- You may download the [Application](https://drive.google.com/open?id=0B0NP6taS3z-yY3EydzNPcU1OQnc) to know how the game is played.
 
 ### Contribution
 - The repository is open to contribution from all interested developers(mainly beginners).
