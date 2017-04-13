@@ -15,7 +15,7 @@
 - [EXE Application](https://drive.google.com/open?id=0B0NP6taS3z-yY3EydzNPcU1OQnc)
 
 ### Contribution
-- The repository is open to contribution from all interested developers(mainly begineers).
+- The repository is open to contribution from all interested developers(mainly beginners).
 - You may go through [CONTRIBUTING.md](https://github.com/mishal23/Tic-Tac-Toe/blob/master/CONTRIBUTING.md) to see what you can contribute to.
 - Also, you can write by opening an [Issue](https://github.com/mishal23/Tic-Tac-Toe/issues) and also solve a current issue if possible.
 - Fork this project to your Github acoount.
