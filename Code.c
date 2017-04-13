@@ -1,3 +1,5 @@
+/*This code has been compiled in Code::Blocks 16.01 IDE*/
+/*Mishal Shah*/
 #include<stdio.h>
 #include<string.h>
 
