@@ -6,10 +6,10 @@
 
 ### ScreenShots from Game
 - Starting of Game
-<img src="https://drive.google.com/open?id=0B0NP6taS3z-yM29vUU1zS2x6bm8.png" width="500" height="500" />
+<img src="https://github.com/mishal23/Tic-Tac-Toe/blob/master/images/start.png" width="250" height="250" />
 
 - In-between Game scenes
-<img src="https://drive.google.com/open?id=0B0NP6taS3z-ydENobFYxOFM4OUU.png" width="500" height="500" />
+<img src="https://github.com/mishal23/Tic-Tac-Toe/blob/master/images/in%20between.png" width="250" height="250" />
 
 ### Download
 - [EXE Application](https://drive.google.com/open?id=0B0NP6taS3z-yY3EydzNPcU1OQnc)
