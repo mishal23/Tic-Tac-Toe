@@ -4,7 +4,7 @@
 - Add more graphics, to enjoy user-interface.
 - Let user choose option to who wants **X** and who wants **0**.
 - Make it two way-game, **Computer vs Human** and **Human vs Human**.
-- Mantain a Leader-Board for all players who have played.
+- Maintain a Leader-Board for all players who have played.
 
 Any such changes if you can make, please do contribute!
 
