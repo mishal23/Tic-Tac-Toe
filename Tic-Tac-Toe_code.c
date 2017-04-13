@@ -8,6 +8,7 @@ void rules();
 int checkforwin();
 int main()
 {
+    system("color 09");
     int player=1;
     int choice,score=-1;
     char symbol,re,x;
@@ -30,6 +31,7 @@ int main()
     }
     else
     {
+        system("color fc");
     board();
     do
     {
@@ -144,11 +146,11 @@ void rules()
     printf("\n2:Player who gets a combination of 3 same characters either diagonal or horizontally or \n  vertically will be declared as the winner");
     printf("\n\nEnjoy the game! Be a Winner!\n\n");
     printf("For more clarifications press Y else type any other character:- ");
-    /*scanf("%c",&link);
+    scanf("%c",&link);
     if(link=='y' || link=='Y')
     {
         system("start http://www.wikihow.com/Play-Tic-Tac-Toe");
-    }*/
+    }
 
 }
 
