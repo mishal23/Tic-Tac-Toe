@@ -5,9 +5,11 @@
 - First user to get three spaces in a row/column or diagonally wins!
 
 ### ScreenShots from Game
-- Starting of Game <img src="https://github.com/mishal23/Tic-Tac-Toe/blob/master/images/start.png" width="734" height="412" />
+- Starting of Game
+<img src="https://github.com/mishal23/Tic-Tac-Toe/blob/master/images/start.png" width="734" height="412" />
 
-- In-between Game scenes <img src="https://github.com/mishal23/Tic-Tac-Toe/blob/master/images/in%20between.png" width="623" height="350" />
+- In-between Game scenes 
+<img src="https://github.com/mishal23/Tic-Tac-Toe/blob/master/images/in%20between.png" width="623" height="350" />
 
 ### Download
 - [EXE Application](https://drive.google.com/open?id=0B0NP6taS3z-yY3EydzNPcU1OQnc)
