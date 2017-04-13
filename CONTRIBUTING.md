@@ -1,4 +1,6 @@
-# What can you contribute?
+# Want to Contribute?
+
+Here are some things, which I want to implement in due course of time!
 
 - Try to make this game a better user-friendly game.
 - Add more graphics, to enjoy user-interface.
