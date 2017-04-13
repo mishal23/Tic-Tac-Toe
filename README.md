@@ -6,10 +6,10 @@
 
 ### ScreenShots from Game
 - Starting of Game
-<img src="https://drive.google.com/open?id=0B0NP6taS3z-yM29vUU1zS2x6bm8" width="100" height="100" />
+<img src="https://drive.google.com/open?id=0B0NP6taS3z-yM29vUU1zS2x6bm8.png" width="500" height="500" />
 
 - In-between Game scenes
-<img src="https://drive.google.com/open?id=0B0NP6taS3z-ydENobFYxOFM4OUU" width="100" height="100" />
+<img src="https://drive.google.com/open?id=0B0NP6taS3z-ydENobFYxOFM4OUU.png" width="500" height="500" />
 
 ### Download
 - [EXE Application](https://drive.google.com/open?id=0B0NP6taS3z-yY3EydzNPcU1OQnc)
@@ -27,7 +27,6 @@ $ gedit Tic-Tac-Toe_code.c
 - Kindly send Pull Requests with explanation as to what changes you have done.
 
 - This repository was created and is currently maintained by [Mishal Shah](https://github.com/mishal23).
-- You may also [mail](shahmishal1998@gmail.com) me for ideas/suggestions.
 
 ### License
 - This software is created under [MIT License](https://github.com/mishal23/Tic-Tac-Toe/blob/master/LICENSE)
