@@ -8,4 +8,4 @@
 
 Any such changes if you can make, please do contribute!
 
-For any queries you may mail me on [shahmishal1998@gmail.com](mailto:shahmishal1998@gmail.com)
+For any queries you may send me an e-mail on [shahmishal1998@gmail.com](mailto:shahmishal1998@gmail.com)
