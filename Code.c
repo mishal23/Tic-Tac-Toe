@@ -140,7 +140,7 @@ void board()
     }
 void rules()
 {
-    char link;//char link;
+    char link;
     printf("\tTic-Tac-Toe\n\n");
     printf("Welcome to the most played 2D game and a sort of fun using X and O\n\n");
     printf("Rules:-\n");
