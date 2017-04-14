@@ -22,8 +22,8 @@
 - After forking enter following commands in your terminal.
 ```
 $ git clone https://github.com/mishal23/Tic-Tac-Toe
-$ cd Tic-Tac-Toe_code.c
-$ gedit Tic-Tac-Toe_code.c
+$ cd Tic-Tac-Toe
+$ vi Code.c
 ```
 - Kindly send Pull Requests with explanation as to what changes you have done.
 
