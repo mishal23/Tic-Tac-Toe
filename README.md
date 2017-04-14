@@ -1,4 +1,4 @@
-### Tic-Tac-Toe
+# Tic-Tac-Toe
 - Tic-Tac-Toe 2-player game( **C programmed**) using basic C functions.
 - User can now know more rules by pressing y/Y which will be redirected to [link](http://www.wikihow.com/Play-Tic-Tac-Toe)
 - After pressing 1, users can enter his/her username and which will lead them to gaming area to make move using the numeric keypad.
