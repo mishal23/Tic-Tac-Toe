@@ -7,6 +7,6 @@ Here are some things, which I want to implement in due course of time!
 - Maintain a Leader-Board for all players who have played.
 - Add more graphics, to enjoy user-interface.
 
-Any such changes if you can make, please do contribute!
+Any such changes if you can make or have any other ideas, please do contribute!
 
-For any queries you may send me an e-mail on [shahmishal1998@gmail.com](mailto:shahmishal1998@gmail.com)
+For any queries you may send me an e-mail on shahmishal1998@gmail.com
