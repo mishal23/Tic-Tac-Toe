@@ -2,7 +2,8 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 - Tic-Tac-Toe 2-player game( **C programmed**) using basic C functions.
 - User can now know more rules by pressing y/Y which will be redirected to [link](http://www.wikihow.com/Play-Tic-Tac-Toe)
-- After pressing 1, users can enter his/her username and which will lead them to gaming area to make move using the numeric keypad.
+- After pressing 1, users can enter his/her username
+- Player1 can now choose whether to play with X or 0 after which players will be leaded to gaming area to make move using the numeric keypad.
 - First user to get three spaces in a row/column or diagonally wins!
 
 ### ScreenShots from Game
