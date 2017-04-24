@@ -2,7 +2,7 @@
 /*Mishal Shah*/
 #include<stdio.h>
 #include<string.h>
-
+char x,o;
 char a[9]={'1','2','3','4','5','6','7','8','9'};
 char u1[50],u2[50];
 void board();
@@ -13,8 +13,8 @@ int main()
     system("color 09");
     int player=1;
     int choice,score=-1;
-    char symbol,re,x;
-    char start;
+    char symbol,re;
+    char start,dec;
     int s;
     rules();
     printf("\n\nType 1 to start the game:- ");
@@ -32,9 +32,12 @@ int main()
         goto read;
     }
     else
-    {
-        system("color fc");
+        decision();
+
+
+    system("color fc");
     board();
+
     do
     {
 
@@ -44,7 +47,7 @@ int main()
         else
             printf("%s Type any digit from 1-9 to fill your response:- ",u2);
         scanf("%d",&choice);
-        symbol=((player==1)?'X':'O');
+        symbol=((player==1)?x:o);
         if(choice==1 && a[0]=='1')
             a[0]=symbol;
         else if(choice==2 && a[1]=='2')
@@ -87,7 +90,6 @@ int main()
         printf("\n\nGame Draws!\n\n");
         getch();
     }
-    }
     else
     {
         printf("\n\nShould have typed 1 to play the game!\nHope to see you back soon!\n\n");
@@ -121,12 +123,11 @@ int checkforwin()
 void board()
 {
     int i;
-    //char u11[50],u22[50];
 
     system("cls");
     printf("\tTic-Tac-Toe\n\n");
         printf("\n\n");
-        printf("%s:- (X)\n%s:-  (O)\n\n\n",u1,u2);
+        printf("%s:- (%c)\n%s:-  (%c)\n\n\n",u1,x,u2,o);
 
         printf("  %c |  %c | %c\n",a[0],a[1],a[2]);
         printf("    |    |    \n");
@@ -155,7 +156,31 @@ void rules()
     }
 
 }
-
+int decision()
+{
+    char dec;
+        deci:
+        printf("\n\nPlayer1 %s choose the X or 0:",u1);
+        dec=getchar();
+        scanf("%c",&dec);
+        {
+            if(dec=='X' || dec=='x')
+            {
+                x='X';
+                o='0';
+            }
+            else if(dec=='0')
+            {
+                x='0';
+                o='X';
+            }
+            else
+            {
+                printf("Please enter either X or 0 only \n\n");
+                goto deci;
+            }
+        }
+}
 
 
 
