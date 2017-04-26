@@ -10,6 +10,9 @@ void rules();
 int checkforwin();
 int main()
 {
+    FILE *p;
+    p=fopen("score.txt","a+");
+    fclose(p);
     system("color 09");
     int player=1;
     int choice,score=-1;
@@ -17,15 +20,19 @@ int main()
     char start,dec;
     int s;
     rules();
-    printf("\n\nType 1 to start the game:- ");
+    printf("\n\nType 1 to start the game:-\nType 2 to view leader board:-\n");
     scanf("%d",&s);
     if(s==1)
     {
     read:
+        p=fopen("score.txt","a+");
     printf("\nEnter name of player1: ");
     scanf("%s",u1);
+    fprintf(p,"\n%s",u1);
     printf("Enter name of player2: ");
     scanf("%s",u2);
+    fprintf(p,"\t%s",u2);
+    fclose(p);
     if(!strcmp(u1,u2))
     {
         printf("Enter names of different players!\n\n");
@@ -75,20 +82,40 @@ int main()
     }while(score == -1);
 
 
-
+    p=fopen("score.txt","a+");
     if(score==1)
     {
+
         if(player==2)
-        {printf("\n\nPlayer1 %s Wins!\n\n",u1);
+        {printf("\n\nPlayer1 %s Wins!\n\n",u1);fprintf(p,"\t%s",u1);
         getch();}
         else
-            {printf("\n\nPlayer2 %s Wins!\n\n",u2);
+            {printf("\n\nPlayer2 %s Wins!\n\n",u2);fprintf(p,"\t%s",u2);
         getch();
             }
+        fclose(p);
     }
     else
-        printf("\n\nGame Draws!\n\n");
+        printf("\n\nGame Draws!\n\n");fprintf(p,"\t%s","DRAW");
         getch();
+    }
+    if(s==2)
+    {
+        int cho;
+        printf("\n\n");
+        char c;
+        p=fopen("score.txt","r");
+        while((c=getc(p))!=EOF)
+        {
+            printf("%c",c);
+        }
+        fclose(p);
+        printf("\n\nPress 1 to start the game:- ");
+        scanf("%d",&cho);
+        if(cho==1)
+            goto read;
+        else
+            getch();
     }
     else
     {
@@ -181,6 +208,9 @@ int decision()
             }
         }
 }
+
+
+
 
 
 
