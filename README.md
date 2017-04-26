@@ -9,7 +9,7 @@
 
 ### ScreenShots from Game
 - Starting of Game
-<img src="https://github.com/mishal23/Tic-Tac-Toe/blob/master/images/updated%20START.png" width="734" height="412" />
+<img src="https://github.com/mishal23/Tic-Tac-Toe/blob/master/images/updated%20START.png" width="752" height="450" />
 
 - LeaderBoard
 <img src="https://github.com/mishal23/Tic-Tac-Toe/blob/master/images/LeaderBoard.png" width="420" height="334"/>
