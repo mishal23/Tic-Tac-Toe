@@ -102,6 +102,7 @@ int main()
     if(s==2)
     {
         int cho;
+        system("cls");
         printf("\n\n");
         printf("\tLEADERBOARD\n\n");
         char c;
