@@ -103,6 +103,7 @@ int main()
     {
         int cho;
         printf("\n\n");
+        printf("\tLEADERBOARD\n\n");
         char c;
         p=fopen("score.txt","r");
         while((c=getc(p))!=EOF)
