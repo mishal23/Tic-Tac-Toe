@@ -43,7 +43,7 @@ int main()
 
 
     system("color fc");
-    board();
+    board(); //print board.
 
     do
     {
