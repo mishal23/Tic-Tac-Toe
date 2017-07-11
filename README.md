@@ -18,7 +18,8 @@
 <img src="https://github.com/mishal23/Tic-Tac-Toe/blob/master/images/Inbetween%20Game%20Scene.png" width="520" height="340" />
 
 ### Download
-- You may download the [Application](https://drive.google.com/open?id=0B0NP6taS3z-yY3EydzNPcU1OQnc) to know how the game is played.
+- For Windows users,you may download the [Application](https://drive.google.com/open?id=0B0NP6taS3z-yY3EydzNPcU1OQnc) to know how the game is played.
+- For Linux users, clone the repo and compile ```Code.c``` file and test the application, which should be fairly simple.
 
 ### Contribution
 - The repository is open to contribution from all interested developers(mainly beginners).
