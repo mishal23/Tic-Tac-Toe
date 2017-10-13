@@ -1,5 +1,7 @@
-/*This code has been compiled in Code::Blocks 16.01 IDE*/
-/*Mishal Shah*/
+/*
+This code has been compiled in Code::Blocks 16.01 IDE on Windows 10
+Author:- Mishal Shah
+*/
 #include<stdio.h>
 #include<string.h>
 char x,o;
