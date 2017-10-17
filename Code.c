@@ -1,5 +1,7 @@
-/*This code has been compiled in Code::Blocks 16.01 IDE*/
-/*Mishal Shah*/
+/*
+This code has been compiled in Code::Blocks 16.01 IDE on Windows 10
+Author:- Mishal Shah
+*/
 #include<stdio.h>
 #include<string.h>
 char x,o;
@@ -50,8 +52,8 @@ int main()
 
     do
     {
-        if(playwer==1){
-            player=((player%2)?1:2);
+      //stupid stupid 'playwer' isnt a var 'player' is what you want
+        if(player==0){
             if(player==1)
             printf("%s Type any digit from 1-9 to fill your response:- ",u1);
             else
@@ -87,7 +89,10 @@ int main()
             {printf("Wrong Selection\n");player--;}
 
         score=checkforwin();
-        player++;
+        player++;//player step up here .step down not found
+        //i knwo ill add it
+        if(payer==2)//0 base to 1 to 2*=0
+          player=0;
         board();
     }while(score == -1);
 
@@ -230,15 +235,10 @@ int ComputerPlay()//alg
         if(a[x]=='1'+x)
             plin+=x+1;
     
-    while(true){
+    while(1){
         plin = (plin*Turn) % 9;
         if(a[plin]=='1'+plin)
             break;
     }
     return plin;
 }
-
-
-
-
-
