@@ -7,9 +7,12 @@ Author:- Mishal Shah
 char x,o;
 char a[9]={'1','2','3','4','5','6','7','8','9'};
 char u1[50],u2[50];
+int Turn=0;//i added this
 void board();
 void rules();
 int checkforwin();
+int ComputerPlay();//i added this
+
 int main()
 {
     FILE *p;
@@ -49,14 +52,21 @@ int main()
 
     do
     {
-
-        player=((player%2)?1:2);
-        if(player==1)
-        printf("%s Type any digit from 1-9 to fill your response:- ",u1);
-        else
-            printf("%s Type any digit from 1-9 to fill your response:- ",u2);
-        scanf("%d",&choice);
-        symbol=((player==1)?x:o);
+      //stupid stupid 'playwer' isnt a var 'player' is what you want
+        if(player==0){
+            if(player==1)
+            printf("%s Type any digit from 1-9 to fill your response:- ",u1);
+            else
+                printf("%s Type any digit from 1-9 to fill your response:- ",u2);
+            scanf("%d",&choice);
+            symbol=x;//player 1 pe
+        }
+        else//edits where made
+        {
+            symbol=o;//player 2 pc
+            choice=ComputerPlay();
+        }
+        Turn++;//update new turn
         if(choice==1 && a[0]=='1')
             a[0]=symbol;
         else if(choice==2 && a[1]=='2')
@@ -79,7 +89,10 @@ int main()
             {printf("Wrong Selection\n");player--;}
 
         score=checkforwin();
-        player++;
+        player++;//player step up here .step down not found
+        //i knwo ill add it
+        if(payer==2)//0 base to 1 to 2*=0
+          player=0;
         board();
     }while(score == -1);
 
@@ -211,4 +224,21 @@ int decision()
                 goto deci;
             }
         }
+}
+
+int ComputerPlay()//alg
+{
+    //a == Game.Board
+    //if Game.Board[x] == x+1 Then Position Not In Use
+    int plin=(Turn*9);
+    for(int x = 0; x < 9; x++)
+        if(a[x]=='1'+x)
+            plin+=x+1;
+    
+    while(1){
+        plin = (plin*Turn) % 9;
+        if(a[plin]=='1'+plin)
+            break;
+    }
+    return plin;
 }
