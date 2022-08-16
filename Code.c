@@ -6,7 +6,11 @@ Author:- Mishal Shah
 #include<string.h>
 #include <stdlib.h>
 #include <stdbool.h>
-
+#ifdef _WIN32
+    #define OS "nt"
+#elif __unix__
+    #define OS "posix"
+#endif 
 #define TRUE 1
 #define FALSE 0
 
@@ -22,7 +26,8 @@ int main()
     char x,o;
     p=fopen("score.txt","a+");
     fclose(p);
-    system("color 09");
+    if (OS=="nt")
+        system("color 09");
     int player=1;
     int choice,score=-1;
     char symbol,re;
@@ -45,7 +50,8 @@ int main()
                 !strcmp(u1,u2) ? printf("Enter names of different players!\n\n") : FALSE;
             } while(!strcmp(u1,u2));
             decision(&x,&o);
-            system("color fc");
+            if (OS=="nt")
+                system("color fc");
             board(x,o);
             do {
                 player=((player%2)?1:2);
@@ -100,7 +106,10 @@ int main()
             }
             break;
         case 2:
-            system("cls");
+            if (OS=="nt") 
+                system("cls");
+            if (OS=="posix")
+                system("clear");
             printf("\n\n");
             printf("\tLEADERBOARD\n\n");
             char c;
@@ -144,8 +153,10 @@ int checkforwin()
 void board(char x, char o)
 {
     int i;
-
-    system("cls");
+    if (OS=="nt")
+        system("cls");
+    if (OS=="posix")
+        system("clear");
     printf("\tTic-Tac-Toe\n\n");
         printf("\n\n");
         printf("%s:- (%c)\n%s:-  (%c)\n\n\n",u1,x,u2,o);
@@ -173,7 +184,10 @@ void rules()
     scanf("%c",&link);
     if(link=='y' || link=='Y')
     {
-        system("start http://www.wikihow.com/Play-Tic-Tac-Toe");
+        if (OS=="nt")
+            system("start http://www.wikihow.com/Play-Tic-Tac-Toe");
+        if (OS=="posix")
+            system("firefox http://www.wikihow.com/Play-Tic-Tac-Toe");
     }
 
 }
