@@ -4,15 +4,22 @@ Author:- Mishal Shah
 */
 #include<stdio.h>
 #include<string.h>
-char x,o;
+#include <stdlib.h>
+#include <stdbool.h>
+
+#define TRUE 1
+#define FALSE 0
+
 char a[9]={'1','2','3','4','5','6','7','8','9'};
 char u1[50],u2[50];
-void board();
+void board(char x, char o);
 void rules();
 int checkforwin();
+bool decision(char *x, char *o);
 int main()
 {
     FILE *p;
+    char x,o;
     p=fopen("score.txt","a+");
     fclose(p);
     system("color 09");
@@ -24,107 +31,90 @@ int main()
     rules();
     printf("\n\nType 1 to start the game:-\nType 2 to view leader board:-\n");
     scanf("%d",&s);
-    if(s==1)
-    {
-    read:
-        p=fopen("score.txt","a+");
-    printf("\nEnter name of player1: ");
-    scanf("%s",u1);
-    fprintf(p,"\n%s",u1);
-    printf("Enter name of player2: ");
-    scanf("%s",u2);
-    fprintf(p,"\t%s",u2);
-    fclose(p);
-    if(!strcmp(u1,u2))
-    {
-        printf("Enter names of different players!\n\n");
-        goto read;
-    }
-    else
-        decision();
-
-
-    system("color fc");
-    board();
-
-    do
-    {
-
-        player=((player%2)?1:2);
-        if(player==1)
-        printf("%s Type any digit from 1-9 to fill your response:- ",u1);
-        else
-            printf("%s Type any digit from 1-9 to fill your response:- ",u2);
-        scanf("%d",&choice);
-        symbol=((player==1)?x:o);
-        if(choice==1 && a[0]=='1')
-            a[0]=symbol;
-        else if(choice==2 && a[1]=='2')
-            a[1]=symbol;
-        else if(choice==3 && a[2]=='3')
-            a[2]=symbol;
-        else if(choice==4 && a[3]=='4')
-            a[3]=symbol;
-        else if(choice==5 && a[4]=='5')
-            a[4]=symbol;
-        else if(choice==6 && a[5]=='6')
-            a[5]=symbol;
-        else if(choice==7 && a[6]=='7')
-            a[6]=symbol;
-        else if(choice==8 && a[7]=='8')
-            a[7]=symbol;
-        else if(choice==9 && a[8]=='9')
-            a[8]=symbol;
-        else
-            {printf("Wrong Selection\n");player--;}
-
-        score=checkforwin();
-        player++;
-        board();
-    }while(score == -1);
-
-
-    p=fopen("score.txt","a+");
-    if(score==1)
-    {
-
-        if(player==2)
-        {printf("\n\nPlayer1 %s Wins!\n\n",u1);fprintf(p,"\t%s",u1);
-        getch();}
-        else
-            {printf("\n\nPlayer2 %s Wins!\n\n",u2);fprintf(p,"\t%s",u2);
-        getch();
+    switch(s) {
+        case 1:
+            do {
+                p=fopen("score.txt", "a+");
+                printf("\nEnter name of player1: ");
+                scanf("%s",u1);
+                fprintf(p,"\n%s",u1);
+                printf("Enter name of player2: ");
+                scanf("%s",u2);
+                fprintf(p,"\t%s",u2);
+                fclose(p);
+                !strcmp(u1,u2) ? printf("Enter names of different players!\n\n") : FALSE;
+            } while(!strcmp(u1,u2));
+            decision(&x,&o);
+            system("color fc");
+            board(x,o);
+            do {
+                player=((player%2)?1:2);
+                if(player==1)
+                    printf("%s Type any digit from 1-9 to fill your response:- ",u1);
+                else
+                    printf("%s Type any digit from 1-9 to fill your response:- ",u2);
+                scanf("%d",&choice);
+                symbol=((player==1)?x:o);
+                if(choice==1 && a[0]=='1')
+                    a[0]=symbol;
+                else if(choice==2 && a[1]=='2')
+                    a[1]=symbol;
+                else if(choice==3 && a[2]=='3')
+                    a[2]=symbol;
+                else if(choice==4 && a[3]=='4')
+                    a[3]=symbol;
+                else if(choice==5 && a[4]=='5')
+                    a[4]=symbol;
+                else if(choice==6 && a[5]=='6')
+                    a[5]=symbol;
+                else if(choice==7 && a[6]=='7')
+                    a[6]=symbol;
+                else if(choice==8 && a[7]=='8')
+                    a[7]=symbol;
+                else if(choice==9 && a[8]=='9')
+                    a[8]=symbol;
+                else {
+                        printf("Wrong Selection\n");
+                        player--;
+                }
+                score=checkforwin();
+                player++;
+                board(x,o);
+            } while(score == -1);
+            p=fopen("score.txt","a+");
+            if(score==1) {
+                if(player==2){
+                    printf("\n\nPlayer1 %s Wins!\n\n",u1);
+                    fprintf(p,"\t%s",u1);
+                    getchar();
+                }
+                else {
+                    printf("\n\nPlayer2 %s Wins!\n\n",u2);fprintf(p,"\t%s",u2);
+                    getchar();
+                }
+                fclose(p);
             }
-        fclose(p);
-    }
-    else
-        printf("\n\nGame Draws!\n\n");fprintf(p,"\t%s","DRAW");
-        getch();
-    }
-    if(s==2)
-    {
-        int cho;
-        system("cls");
-        printf("\n\n");
-        printf("\tLEADERBOARD\n\n");
-        char c;
-        p=fopen("score.txt","r");
-        while((c=getc(p))!=EOF)
-        {
-            printf("%c",c);
-        }
-        fclose(p);
-        printf("\n\nPress 1 to start the game:- ");
-        scanf("%d",&cho);
-        if(cho==1)
-            goto read;
-        else
-            getch();
-    }
-    else
-    {
-        printf("\n\nShould have typed 1 to play the game!\nHope to see you back soon!\n\n");
-        getch();
+            else {
+                printf("\n\nGame Draws!\n\n");fprintf(p,"\t%s","DRAW");
+                getchar();
+            }
+            break;
+        case 2:
+            system("cls");
+            printf("\n\n");
+            printf("\tLEADERBOARD\n\n");
+            char c;
+            p=fopen("score.txt","r");
+            while((c=getc(p))!=EOF) {
+                printf("%c",c);
+            }
+            fclose(p);
+            getchar();
+            break;
+        default:
+            printf("\n\nShould have typed 1 to play the game!\nHope to see you back soon!\n\n");
+            getchar();
+            break;
     }
 }
 int checkforwin()
@@ -151,7 +141,7 @@ int checkforwin()
         return -1;
 }
 
-void board()
+void board(char x, char o)
 {
     int i;
 
@@ -187,28 +177,21 @@ void rules()
     }
 
 }
-int decision()
+bool decision(char *x, char *o)
 {
     char dec;
-        deci:
-        printf("\n\nPlayer1 %s choose the X or 0:",u1);
+    printf("\n\n");
+    do {
+        printf("Player1 %s choose the X or 0:",u1);
         dec=getchar();
-        scanf("%c",&dec);
-        {
-            if(dec=='X' || dec=='x')
-            {
-                x='X';
-                o='0';
-            }
-            else if(dec=='0')
-            {
-                x='0';
-                o='X';
-            }
-            else
-            {
-                printf("Please enter either X or 0 only \n\n");
-                goto deci;
-            }
-        }
+        scanf("%c", &dec);
+    } while(dec!='X' && dec!='x' && dec!='0');
+    if (dec=='X' || dec=='x') {
+        *x='X';
+        *o='0';
+    }
+    else {
+        *x='0';
+        *o='X';
+    }
 }
