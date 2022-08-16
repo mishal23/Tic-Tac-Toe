@@ -14,25 +14,25 @@ Author:- Mishal Shah
 #define TRUE 1
 #define FALSE 0
 
-char a[9]={'1','2','3','4','5','6','7','8','9'};
-char u1[50],u2[50];
-void board(char x, char o);
-void rules();
-int checkforwin();
-bool decision(char *x, char *o);
+void board(char x, char o, unsigned char *u1, unsigned char *u2, char *a); // 2D Graphics on CLI
+void rules(); // Prints rule page on CLI
+int checkforwin(char *a); // Checks wether a player won
+bool decision(char *x, char *o, unsigned char *u1); // points player to mark X or mark 0
 int main()
 {
     FILE *p;
     char x,o;
     p=fopen("score.txt","a+");
     fclose(p);
-    if (OS=="nt")
-        system("color 09");
+    char a[9]={'1','2','3','4','5','6','7','8','9'};
+    char u1[50],u2[50];
     int player=1;
     int choice,score=-1;
     char symbol,re;
     char start,dec;
     int s;
+    if (OS=="nt")
+        system("color 09");
     rules();
     printf("\n\nType 1 to start the game:-\nType 2 to view leader board:-\n");
     scanf("%d",&s);
@@ -49,10 +49,10 @@ int main()
                 fclose(p);
                 !strcmp(u1,u2) ? printf("Enter names of different players!\n\n") : FALSE;
             } while(!strcmp(u1,u2));
-            decision(&x,&o);
+            decision(&x, &o, u1);
             if (OS=="nt")
                 system("color fc");
-            board(x,o);
+            board(x,o, u1, u2, a);
             do {
                 player=((player%2)?1:2);
                 if(player==1)
@@ -83,9 +83,9 @@ int main()
                         printf("Wrong Selection\n");
                         player--;
                 }
-                score=checkforwin();
+                score=checkforwin(a);
                 player++;
-                board(x,o);
+                board(x, o, u1, u2, a);
             } while(score == -1);
             p=fopen("score.txt","a+");
             if(score==1) {
@@ -126,7 +126,7 @@ int main()
             break;
     }
 }
-int checkforwin()
+int checkforwin(char *a)
 {
     if(a[0]==a[1] && a[1]==a[2])
         return 1;
@@ -150,7 +150,7 @@ int checkforwin()
         return -1;
 }
 
-void board(char x, char o)
+void board(char x, char o, unsigned char *u1, unsigned char *u2, char *a)
 {
     int i;
     if (OS=="nt")
@@ -191,7 +191,7 @@ void rules()
     }
 
 }
-bool decision(char *x, char *o)
+bool decision(char *x, char *o, unsigned char *u1)
 {
     char dec;
     printf("\n\n");
@@ -208,4 +208,5 @@ bool decision(char *x, char *o)
         *x='0';
         *o='X';
     }
+    return 1;
 }
