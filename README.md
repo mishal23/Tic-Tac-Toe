@@ -19,7 +19,6 @@
 
 ### Download
 - For Windows users,you may download the [Application](https://drive.google.com/open?id=0B0NP6taS3z-yY3EydzNPcU1OQnc) to know how the game is played.
-- The code doesn't work for Linux Laptops due to usage of certain functions like ```getch()```
 
 ### Contribution
 - The repository is open to contribution from all interested developers(mainly beginners).
