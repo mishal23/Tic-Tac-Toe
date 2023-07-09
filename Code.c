@@ -23,7 +23,7 @@ int main()
     FILE *p;
     char x,o;
     p=fopen("score.txt","a+");
-    fclose(p);
+    fclose(p);  //just checking
     char a[9]={'1','2','3','4','5','6','7','8','9'};
     char u1[50],u2[50];
     int player=1;
