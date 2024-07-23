@@ -40,7 +40,7 @@ int main()
     rules();
     printf("\n\nType 1 to start the game against human:-");
     printf("\nType 2 to start the game against computer:-\n");
-    printf("Type 3 to view leader board:-\n\n\n");
+    printf("\nType 3 to view leader board:-\n\n\n");
 
     printf("Enter your choice:---> ");
     scanf("%d",&s);
@@ -53,7 +53,6 @@ int main()
                 p=fopen("score.txt", "a+");
                 printf("\nEnter name of player1: ");
                 scanf("%s",u1);
-                getchar();
 
                 fprintf(p,"\n%s",u1);
                 printf("Enter name of player2: ");
@@ -142,8 +141,8 @@ int main()
                 getchar();
 
                 fprintf(p,"\n%s",u1);
-                printf("My name is user23052036(AI-BOT) lets play o_O");
-                strcpy(u2,"USER2036");
+                printf("My name is (AI-BOT) lets play o_O");
+                strcpy(u2,"AI-BOT");
 
                 fprintf(p,"\t%s",u2);
                 fclose(p);
