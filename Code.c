@@ -3,6 +3,8 @@ This code has been compiled in Code::Blocks 16.01 IDE on Windows 10
 Author:- Mishal Shah
 */
 #include<stdio.h>
+#include<time.h>
+#include<unistd.h>
 #include<string.h>
 #include <stdlib.h>
 #include <stdbool.h>
@@ -18,6 +20,8 @@ void board(char x, char o, unsigned char *u1, unsigned char *u2, char *a); // 2D
 void rules(); // Prints rule page on CLI
 int checkforwin(char *a); // Checks wether a player won
 bool decision(char *x, char *o, unsigned char *u1); // points player to mark X or mark 0
+int rand_generator(int*,int);
+bool if_unique(int*,int,int);
 int main()
 {
     FILE *p;
@@ -34,26 +38,38 @@ int main()
     if (OS=="nt")
         system("color 09");
     rules();
-    printf("\n\nType 1 to start the game:-\nType 2 to view leader board:-\n");
+    printf("\n\nType 1 to start the game against human:-");
+    printf("\nType 2 to start the game against computer:-\n");
+    printf("\nType 3 to view leader board:-\n\n\n");
+
+    printf("Enter your choice:---> ");
     scanf("%d",&s);
-    switch(s) {
+    switch(s) 
+    {
         case 1:
-            do {
+        {
+            do 
+            {
                 p=fopen("score.txt", "a+");
                 printf("\nEnter name of player1: ");
                 scanf("%s",u1);
+
                 fprintf(p,"\n%s",u1);
                 printf("Enter name of player2: ");
                 scanf("%s",u2);
+                getchar();
+                
                 fprintf(p,"\t%s",u2);
                 fclose(p);
                 !strcmp(u1,u2) ? printf("Enter names of different players!\n\n") : FALSE;
             } while(!strcmp(u1,u2));
+
             decision(&x, &o, u1);
             if (OS=="nt")
                 system("color fc");
             board(x,o, u1, u2, a);
-            do {
+            do 
+            {
                 player=((player%2)?1:2);
                 if(player==1)
                     printf("%s Type any digit from 1-9 to fill your response:- ",u1);
@@ -79,33 +95,147 @@ int main()
                     a[7]=symbol;
                 else if(choice==9 && a[8]=='9')
                     a[8]=symbol;
-                else {
-                        printf("Wrong Selection\n");
-                        player--;
+                else 
+                {
+                    printf("Wrong Selection\n");
+                    player--;
                 }
                 score=checkforwin(a);
                 player++;
                 board(x, o, u1, u2, a);
             } while(score == -1);
+
             p=fopen("score.txt","a+");
-            if(score==1) {
-                if(player==2){
+            if(score==1) 
+            {
+                if(player==2)
+                {
                     printf("\n\nPlayer1 %s Wins!\n\n",u1);
                     fprintf(p,"\t%s",u1);
                     getchar();
                 }
-                else {
+                else 
+                {
                     printf("\n\nPlayer2 %s Wins!\n\n",u2);fprintf(p,"\t%s",u2);
                     getchar();
                 }
                 fclose(p);
             }
-            else {
+            else 
+            {
                 printf("\n\nGame Draws!\n\n");fprintf(p,"\t%s","DRAW");
                 getchar();
             }
             break;
+        }
+
         case 2:
+        {
+            int length=5,index=0;
+            int *arr = (int*)malloc(length*sizeof(int));
+            do 
+            {
+                p=fopen("score.txt", "a+");
+                printf("\nEnter name of player1: ");
+                scanf("%s",u1);
+                getchar();
+
+                fprintf(p,"\n%s",u1);
+                printf("My name is (AI-BOT) lets play o_O");
+                strcpy(u2,"AI-BOT");
+
+                fprintf(p,"\t%s",u2);
+                fclose(p);
+                !strcmp(u1,u2) ? printf("Enter names of different players!\n\n") : FALSE;
+            } while(!strcmp(u1,u2));
+
+            decision(&x, &o, u1);
+            if (OS=="nt")
+                system("color fc");
+            board(x,o, u1, u2, a);
+            do 
+            {
+                player=((player%2)?1:2);
+                if(player==1)
+                {
+                    printf("%s Type any digit from 1-9 to fill your response:- ",u1);
+                    scanf("%d",&choice);
+
+                    if(index>=5)
+                    {
+                        length++;
+                        arr = realloc(arr,length);
+                        arr[index]=choice;
+                        index++;
+                    }
+                    else
+                    {
+                        arr[index]=choice;
+                        index++;
+                    }
+                }
+                else
+                {
+                    printf("%s Type any digit from 1-9 to fill your response:- ",u2);
+                    choice = rand_generator(arr,index);
+                }
+
+                symbol=((player==1)?x:o);
+                if(choice==1 && a[0]=='1')
+                    a[0]=symbol;
+                else if(choice==2 && a[1]=='2')
+                    a[1]=symbol;
+                else if(choice==3 && a[2]=='3')
+                    a[2]=symbol;
+                else if(choice==4 && a[3]=='4')
+                    a[3]=symbol;
+                else if(choice==5 && a[4]=='5')
+                    a[4]=symbol;
+                else if(choice==6 && a[5]=='6')
+                    a[5]=symbol;
+                else if(choice==7 && a[6]=='7')
+                    a[6]=symbol;
+                else if(choice==8 && a[7]=='8')
+                    a[7]=symbol;
+                else if(choice==9 && a[8]=='9')
+                    a[8]=symbol;
+                else 
+                {
+                    printf("Wrong Selection\n");
+                    player--;
+                }
+                score=checkforwin(a);
+                player++;
+                board(x, o, u1, u2, a);
+            } while(score == -1);
+
+            p=fopen("score.txt","a+");
+            if(score==1) 
+            {
+                if(player==2)
+                {
+                    printf("\n\nPlayer1 %s Wins!\n\n",u1);
+                    fprintf(p,"\t%s",u1);
+                    getchar();
+                }
+                else 
+                {
+                    printf("\n\nPlayer2 %s Wins!\n\n",u2);fprintf(p,"\t%s",u2);
+                    getchar();
+                }
+                fclose(p);
+            }
+            else 
+            {
+                printf("\n\nGame Draws!\n\n");fprintf(p,"\t%s","DRAW");
+                getchar();
+            }
+            free(arr);
+            break;
+        }
+
+        case 3:
+        {
             if (OS=="nt") 
                 system("cls");
             if (OS=="posix")
@@ -114,16 +244,18 @@ int main()
             printf("\tLEADERBOARD\n\n");
             char c;
             p=fopen("score.txt","r");
-            while((c=getc(p))!=EOF) {
+            while((c=getc(p))!=EOF)
                 printf("%c",c);
-            }
             fclose(p);
             getchar();
             break;
+        }
         default:
+        {
             printf("\n\nShould have typed 1 to play the game!\nHope to see you back soon!\n\n");
             getchar();
             break;
+        }
     }
 }
 int checkforwin(char *a)
@@ -195,18 +327,44 @@ bool decision(char *x, char *o, unsigned char *u1)
 {
     char dec;
     printf("\n\n");
-    do {
+    do 
+    {
         printf("Player1 %s choose the X or 0:",u1);
         dec=getchar();
-        scanf("%c", &dec);
+        getchar();
+
     } while(dec!='X' && dec!='x' && dec!='0');
-    if (dec=='X' || dec=='x') {
+
+    if (dec=='X' || dec=='x') 
+    {
         *x='X';
         *o='0';
     }
-    else {
+    else 
+    {
         *x='0';
         *o='X';
     }
     return 1;
+}
+
+int rand_generator(int*arr, int length)
+{
+    int rand_num;
+    long int seed = time(NULL)*getpid();
+
+    srand(seed);
+    do
+    {
+        rand_num = rand()%9+1;
+    }while(!if_unique(arr,length,rand_num));
+    return rand_num;
+}
+
+bool if_unique(int *arr, int length, int num)
+{
+    for(int i=0; i<length; i++)
+        if(arr[i] == num)
+            return false;
+    return true;
 }
